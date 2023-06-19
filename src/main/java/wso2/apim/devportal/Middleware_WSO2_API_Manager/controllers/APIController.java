@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Base64Utils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.API;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.APIList;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientCredentials;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientRegistration;
@@ -24,5 +25,10 @@ public class APIController {
     public APIList getAllAPIs() {
 
         return apiInterface.getAllAPIs();
+    }
+
+    @GetMapping("/{apiId}")
+    public API getAPIDetails(@PathVariable(value = "apiId") String apiId){
+        return apiInterface.getApiDetails(apiId);
     }
 }

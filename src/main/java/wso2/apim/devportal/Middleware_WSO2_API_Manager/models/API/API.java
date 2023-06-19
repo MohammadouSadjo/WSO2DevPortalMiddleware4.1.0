@@ -46,4 +46,39 @@ public class API {
     private String monetizationLabel;
 
     private String gatewayVendor;
+
+    private String apiDefinition;
+
+    private String wsdlUri;
+
+    private Boolean isDefaultVersion;
+
+    private List<String> transport;
+
+    private String authorizationHeader;
+
+    private List<String> securityScheme;
+
+    private List<String> tags;
+
+    private List<Tier> tiers;
+
+    private Boolean hasThumbnail;
+
+    private Monetization monetization;
+
+    private List<EndpointURL> endpointURLs;
+
+    private List<String> environmentList;
+
+    private List<Scope> scopes;
+
+    private List<String> categories;
+
+    private List<String> keyManagers;
+
+    private String lastUpdatedTime;
+
+    private List<String> asyncTransportProtocols;
+
 }
