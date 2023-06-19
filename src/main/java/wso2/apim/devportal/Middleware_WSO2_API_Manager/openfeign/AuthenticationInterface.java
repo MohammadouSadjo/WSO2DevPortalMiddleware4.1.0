@@ -10,7 +10,7 @@ import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.Cli
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientRegistrationDevPortal;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.AccessToken.RequestAccessTokenDevPortal;
 
-@FeignClient(name="wso2apim", url = "https://localhost:9443")
+@FeignClient(name="wso2apimauth", url = "https://localhost:9443")
 public interface AuthenticationInterface {
 
     @PostMapping(path = "/client-registration/v0.17/register")
