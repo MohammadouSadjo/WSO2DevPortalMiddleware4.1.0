@@ -7,10 +7,13 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.API;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.APIList;
+import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.ThrottlingPolicy;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientCredentials;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientRegistration;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Authentication.ClientCredentials.ClientRegistrationDevPortal;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.openfeign.APIInterface;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -31,4 +34,11 @@ public class APIController {
     public API getAPIDetails(@PathVariable(value = "apiId") String apiId){
         return apiInterface.getApiDetails(apiId);
     }
+
+    @GetMapping("/subscription-throttling-policies/{apiId}")
+    public List<ThrottlingPolicy> getDetailSubscriptionThrottlingPoliciesOfAPI(@PathVariable(value = "apiId") String apiId) {
+
+        return apiInterface.getDetailsSubscriptionThrottlingPoliciesOfAPI(apiId);
+    }
+
 }
