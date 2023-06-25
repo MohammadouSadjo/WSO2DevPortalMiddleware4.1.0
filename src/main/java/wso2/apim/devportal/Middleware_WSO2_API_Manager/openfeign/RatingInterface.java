@@ -1,10 +1,10 @@
 package wso2.apim.devportal.Middleware_WSO2_API_Manager.openfeign;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.API.API;
+import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Rating.AddUpdateRating;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Rating.Rating;
 import wso2.apim.devportal.Middleware_WSO2_API_Manager.models.Rating.RatingList;
 
@@ -16,6 +16,12 @@ public interface RatingInterface {
 
     @GetMapping(path = "/apis/{apiId}/user-rating")
     Rating getApiRatingofUser(@PathVariable(value = "apiId") String apiId, @RequestHeader(value = "Authorization", required = true) String authorizationHeader);
+
+    @PutMapping(path = "/apis/{apiId}/user-rating")
+    Rating addOrUpdateApiRatingofUser(@PathVariable(value = "apiId") String apiId, @RequestHeader(value = "Authorization", required = true) String authorizationHeader, @Validated @RequestBody AddUpdateRating addUpdateRating);
+
+    @DeleteMapping(path = "/apis/{apiId}/user-rating")
+    void deleteApiRatingofUser(@PathVariable(value = "apiId") String apiId, @RequestHeader(value = "Authorization", required = true) String authorizationHeader);
 
 
 }
