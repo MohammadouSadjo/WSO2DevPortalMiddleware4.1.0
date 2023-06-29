@@ -18,7 +18,7 @@ public class SubscriptionController {
     @Autowired
     SubscriptionInterface subscriptionInterface;
 
-    @GetMapping("/all")
+    @PostMapping("/all")
     public SubscriptionList getAllSubscriptions(@RequestParam(value = "apiId") String apiId, @RequestBody AccessToken accessToken){
 
         String authHeader = "Bearer " + accessToken.getAccess_token();
@@ -28,7 +28,7 @@ public class SubscriptionController {
         return subscriptionInterface.getAllSubscriptions(apiId, authHeader);
     }
 
-    @GetMapping("/{subscriptionId}")
+    @PostMapping("/{subscriptionId}")
     public Subscription getSubscriptionDetails(@PathVariable(value = "subscriptionId") String subscriptionId, @RequestBody AccessToken accessToken){
 
         String authHeader = "Bearer " + accessToken.getAccess_token();
